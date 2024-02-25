@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #000000;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .cube {
+            position: relative;
+            width: 1400px; 
+            height: 1400px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s;
+        }
+
+        .face {
+            position: absolute;
+            width: 1400px;
+            height: 1400px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #face1 { 
+            transform: rotateY(  0deg) translateZ(700px); 
+            background-image: url('./assets/images/imagemCarlosEnglerDev.jpg');
+        }
+        #face2 { 
+            transform: rotateY( 90deg) translateZ(700px); 
+            background-image: url('./assets/images/imagemCarlosEnglerDev.jpg');
+        }
+        #face3 { 
+            transform: rotateY(180deg) translateZ(700px); 
+            background-image: url('./assets/images/imagemCarlosEnglerDev.jpg');
+        }
+        #face4 { 
+            transform: rotateY(270deg) translateZ(700px); 
+            background-image: url('./assets/images/imagemCarlosEnglerDev.jpg');
+        }
+        #face5 { 
+            transform: rotateX( 90deg) translateZ(700px); 
+            background-image: url('./assets/images/imagemCarlosEnglerDev.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <nav>
+                <button onclick="rotateCubeToFace(1)">Ir para Seção 1</button>
+                <button onclick="rotateCubeToFace(4)">Ir para Seção 2</button>
+                <button onclick="rotateCubeToFace(3)">Ir para Seção 3</button>
+                <button onclick="rotateCubeToFace(2)">Ir para Seção 4</button>
+                <button onclick="rotateCubeToFace(5)">Ir para Seção 5</button>
+            </nav>
+        </div>
+
+        <div class="cube" id="cube">
+            <div class="face" id="face1">Seção 1</div>
+            <div class="face" id="face2">Seção 2</div>
+            <div class="face" id="face3">Seção 3</div>
+            <div class="face" id="face4">Seção 4</div>
+            <div class="face" id="face5">Seção 5</div>
+        </div>
+    </div>
+
+    <script>
+        function rotateCubeToFace(n) {
+            document.getElementById('cube').style.transform = 'rotateY(' + (n-1)*90 + 'deg)';
+        }
+    </script>
+</body>
+</html>
